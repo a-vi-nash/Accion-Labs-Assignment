@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.min.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.1/ui-bootstrap-tpls.js"></script>
+		<script src="app.js"></script>
+		<style>
+		.st-sort-ascent:before{
+			content: '\25B2';
+		  }
+
+		  .st-sort-descent:before{
+			content: '\25BC';
+		  }
+		  body {
+			font-family: open-sans;
+			font-size: 14px;
+		}
+		</style>
+	</head>
+	<body ng-app="TestApp" ng-controller="testController">
+		<div class="container">
+			<h1>Accion Labs Pvt Ltd</h1>
+			<div ng-show="loading"><h3>Loading...</h3></div>
+			<div class="row well">
+				<button type="button" class="btn btn-info pull-right" ng-click="addRecord()"><i class="glyphicon glyphicon-plus">
+								</i> Add New Employee</button>
+			</div>
+			<table st-table="display_records"  st-safe-src="employees" class="table table-striped">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th width="100px">Name</th>
+					<th st-sort="salary">Age</th>
+					<th>Role</th>
+                    <th>isActive</th>
+					<th>Action</th>
+				</tr>
+				<tr>
+					<th colspan="5">
+						<input st-search placeholder="global search" class="input-sm form-control" type="search"/>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records">
+                    <td>{{row.emp_id}}</td>
+                    <td>{{row.emp_name}}</td>
+					<td>{{row.emp_age}}</td>
+					<td>{{row.emp_role}}</td>
+                    <td>{{row.emp_isactive}}</td>
+					<td>
+						<div class="btn-group" role="group" aria-label="...">
+						  <button type="button" class="btn btn-default" ng-click="editRecord(row.id)"><i class="glyphicon glyphicon-pencil">
+								</i></button>
+						  <button type="button" class="btn btn-danger" ng-click="deletRecord(row.id)"><i class="glyphicon glyphicon-trash">
+								</i></button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="5" class="text-center">
+						<div st-pagination="" st-items-by-page="itemsByPage"></div>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+		</div>
+	</body>
+</html>
