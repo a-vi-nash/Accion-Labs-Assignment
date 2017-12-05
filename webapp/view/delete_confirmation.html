@@ -1,0 +1,13 @@
+<div class="clearfix">
+    <div class="modal-header model-grey-color">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancelModal()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Delete : {{employee.name}}</h4>
+    </div>
+    <div class="modal-body">
+        <h4>Are you Sure you want to delete the record?</h4>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-delete" ng-click="deleteEmp()"><i class="glyphicon glyphicon-floppy-save"></i> Delete</button>
+        <button class="btn btn-danger" ng-click="cancelModal()"><i class="glyphicon glyphicon-remove"></i> Close</button>
+    </div>
+</div>

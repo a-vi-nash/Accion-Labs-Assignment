@@ -20,7 +20,7 @@
 		}
 		</style>
 	</head>
-	<body ng-app="TestApp" ng-controller="testController">
+	<body ng-app="AccionApp" ng-controller="accionController">
 		<div class="container">
 			<h1>Accion Labs Pvt Ltd</h1>
 			<div ng-show="loading"><h3>Loading...</h3></div>
@@ -33,7 +33,7 @@
 				<tr>
 					<th>id</th>
 					<th width="100px">Name</th>
-					<th st-sort="salary">Age</th>
+					<th>Age</th>
 					<th>Role</th>
                     <th>isActive</th>
 					<th>Action</th>
@@ -46,16 +46,16 @@
 			</thead>
 			<tbody>
 				<tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records">
-                    <td>{{row.emp_id}}</td>
-                    <td>{{row.emp_name}}</td>
-					<td>{{row.emp_age}}</td>
-					<td>{{row.emp_role}}</td>
-                    <td>{{row.emp_isactive}}</td>
+                    <td>{{row._id}}</td>
+                    <td>{{row.name}}</td>
+					<td>{{row.age}}</td>
+					<td>{{row.role}}</td>
+                    <td>{{row.isActive}}</td>
 					<td>
 						<div class="btn-group" role="group" aria-label="...">
-						  <button type="button" class="btn btn-default" ng-click="editRecord(row.id)"><i class="glyphicon glyphicon-pencil">
+						  <button type="button" class="btn btn-default" ng-click="editRecord(row._id)"><i class="glyphicon glyphicon-pencil">
 								</i></button>
-						  <button type="button" class="btn btn-danger" ng-click="deletRecord(row.id)"><i class="glyphicon glyphicon-trash">
+						  <button type="button" class="btn btn-danger" ng-click="removeRecord(row._id,row.name)"><i class="glyphicon glyphicon-trash">
 								</i></button>
 						</div>
 					</td>

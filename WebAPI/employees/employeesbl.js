@@ -4,9 +4,10 @@ var employees_db = require("./employeesdb");
 // fetch employees
 function fetchEmp(req, res) {
     const textToSearch = req.params.text || null;
+    const id = req.query.id || null;
 
 
-    employees_db.fetchEmp(textToSearch, function (err,data) {
+    employees_db.fetchEmp(textToSearch,id, function (err,data) {
         if(err)
         {
             res.status(500).send(err);
@@ -23,7 +24,7 @@ function fetchEmp(req, res) {
 function createEmp(req, res) {
     var reqdata = {};
     reqdata.name = req.body.name == undefined ? null :req.body.name;
-    reqdata.dateOfBirth = req.body.dob == undefined ? null :req.body.dob;
+    reqdata.dateOfBirth = req.body.dob == undefined ? null : new Date(req.body.dob);
     reqdata.role = req.body.role == undefined ? null :req.body.role;
 
     employees_db.createEmp(reqdata, function (err,data) {
@@ -43,8 +44,9 @@ function createEmp(req, res) {
 function updateEmp(req, res) {
     var reqdata = {};
     reqdata.name = req.body.name == undefined ? null :req.body.name;
-    reqdata.dateOfBirth = req.body.dob == undefined ? null :req.body.dob;
+    reqdata.dateOfBirth = req.body.dob == undefined ? null :new Date(req.body.dob);
     reqdata.role = req.body.role == undefined ? null :req.body.role;
+    reqdata.isActive = req.body.isActive == undefined ? null :req.body.isActive;
     reqdata.id = req.body.id == undefined ? null :req.body.id;
 
     if (!reqdata.id) {

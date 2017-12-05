@@ -1,6 +1,6 @@
-{"_id":1,"name":"Avinash","dateOfBirth":"25/10/1989","role":"Admin","isActive":true}
-{"_id":2,"name":"Miten","dateOfBirth":"07/08/1991","role":"User","isActive":true}
-{"_id":3,"name":"Prasanna","dateOfBirth":"12/12/1991","role":"SysAdmin","isActive":true}
-{"_id":4,"name":"Anoop","dateOfBirth":"12/08/1991","role":"Developer","isActive":true}
-{"_id":5,"name":"Akarsh","dateOfBirth":"24/04/1992","role":"Support","isActive":true}
-{"_id":6,"name":"Ann","dateOfBirth":"24/04/1992","role":"Avinash","isActive":true}
+{"_id":1,"name":"Avinash","dateOfBirth":{ "$date": "1989-10-25T00:00:00.000Z" },"role":"Admin","isActive":true}
+{"_id":2,"name":"Miten","dateOfBirth":{ "$date": "1991-09-07T00:00:00.000Z" },"role":"User","isActive":true}
+{"_id":3,"name":"Prasanna","dateOfBirth":{ "$date": "1991-11-12T00:00:00.000Z" },"role":"SysAdmin","isActive":true}
+{"_id":4,"name":"Anoop","dateOfBirth":{ "$date": "1991-09-14T00:00:00.000Z" },"role":"Developer","isActive":true}
+{"_id":5,"name":"Akarsh","dateOfBirth":{ "$date": "1992-03-24T00:00:00.000Z" },"role":"Support","isActive":true}
+{"_id":6,"name":"Ann","dateOfBirth":{ "$date": "1991-05-18T00:00:00.000Z" },"role":"Avinash","isActive":true}

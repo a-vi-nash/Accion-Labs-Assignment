@@ -1,17 +1,31 @@
 
 var conn = require("../connection.js"); //db
-
+var common = require("../common/common.js")
 // fetch employee from mongodb collection
-function fetchEmp(textToSearch, callback) {
+function fetchEmp(textToSearch,id, callback) {
     var op = [];
     try{
         conn.mongoConn(function(err,db){
-            var query = textToSearch == null ? null : { $text: { $search: textToSearch } } ;
+            //var query = textToSearch == null ? null : { $text: { $search: textToSearch } } ;
+            var query;
+            if(textToSearch != null)
+            {
+                query = { $text: { $search: textToSearch } };
+            }
+            else if( id != null)
+            {
+                query = {"_id":parseInt(id)};
+            }
+            else
+            {
+                query = null;
+            }
             var cursor = db.collection('employees').find(query);
             cursor.sort({_id:1});
 
             cursor.forEach(
                 function(doc) {
+                    doc.age = common.findage(doc.dateOfBirth);
                     op.push(doc);
                 },
                 function(err) {
