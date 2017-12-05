@@ -19,7 +19,7 @@ angular.module('AccionApp.controllers', []).controller('accionController',  ['$s
 		  size: '',
             resolve: {
                 record: function () {
-                    return [{"mode":"Add"}];
+                    return [{"mode":"Add User"}];
                 }
             }
 	   });
@@ -162,7 +162,7 @@ AccionApp.controller('updateEmpCtrl',  ['$scope', '$http', 'record', function($s
 		$scope.employee.role = record[0].role;
         $scope.employee.isActive = record[0].isActive;
 		$scope.employee.id = parseInt(record[0]._id);
-        $scope.employee.mode = "Update";
+        $scope.employee.mode = "Edit";
         $scope.employee.view = visibility;
     }
 	$scope.updateEmp = function () {
