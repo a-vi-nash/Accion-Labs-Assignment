@@ -43,11 +43,11 @@ An MEAN Stack Assignment for Evaluation
       ```
     
    # Initial Setup:
-   - Start mongo server by using cmd
-    ```
-    mongod
-    ```
-   - initial db setup:
+   * Start mongo server by using cmd
+            ```
+            mongod
+            ```
+   * initial db setup:
     - use the below command for inserting the document after starting the mongo server by CD inside the DB folder
              ``` 
              mongoimport -d accion -c employees data.json
@@ -56,26 +56,26 @@ An MEAN Stack Assignment for Evaluation
              ```
              db.employees.createIndex( { "name": 1 }, { unique: true } );
              ```
-    - To enable full text search on Name and Role field use the following Index
+   - To enable full text search on Name and Role field use the following Index
              ```
              db.employees.createIndex( { name: "text", role: "text"} )
              ```
-   - API setup:
+   * API setup:
     - CD to the WebAPI folder and install the node packages using the following command.
-        ```
-        npm install
-        ```
-    - Run the web API using forever.
-        ```
-        forever start app.js
-        ```
+            ```
+            npm install
+            ```
+     - Run the web API using forever.
+            ```
+            forever start app.js
+            ```
         
-   - Start the WebApp:
+   * Start the WebApp:
     - We will use live-server package of npm to run the angular app.
     - CD to the webapp folder and type:
-        ```
-        live-server
-        ```
+            ```
+            live-server
+            ```
     - the app will be launched in the browser on the link localhost:8080/
     
     
